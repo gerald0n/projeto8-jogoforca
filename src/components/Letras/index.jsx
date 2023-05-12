@@ -14,7 +14,6 @@ export default function Letras(props) {
                props.setStatusColor('sucess')
                props.setDisabledButton(true)
             }
-            console.log(palavraReserva)
          }
       } else {
          if (props.totalErrors < 5) {

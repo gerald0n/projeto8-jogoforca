@@ -1,13 +1,17 @@
 import { ContainerJogo, Button, Char } from './style'
 
 export default function Jogo(props) {
-         
-   
+   let palavra = ''
+   palavra = props.palavraSelecionada.split('').map((char) => {
+      return props.fimJogo ? ` ${char} ` : props.keysClickeds.includes(char) ? ` ${char} ` : ' _ '
+   })
+
    return (
       <ContainerJogo color={props.statusColor}>
          <img data-test="game-image" src={`assets/forca${props.totalErrors}.png`} alt="" />
          <div>
-            <Button data-test="choose-word"
+            <Button
+               data-test="choose-word"
                onClick={() => {
                   props.setPalavraSelecionada(
                      props.arrPalavras[Math.floor(Math.random() * props.arrPalavras.length - 1)]
@@ -22,13 +26,7 @@ export default function Jogo(props) {
                Escolher Palavra
             </Button>
 
-            <Char data-test="word">
-               {props.palavraSelecionada.split('').map((char) => {
-                  
-                  return (props.fimJogo) ? ` ${char} ` : props.keysClickeds.includes(char) ? ` ${char} ` : ' _ '
-               })}
-
-            </Char>
+            <Char data-test="word">{palavra.join('')}</Char>
          </div>
       </ContainerJogo>
    )
