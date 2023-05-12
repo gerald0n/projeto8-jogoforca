@@ -25,7 +25,7 @@ export default function Jogo(props) {
             <Char data-test="word">
                {props.palavraSelecionada.split('').map((char, index) => {
                   
-                  return (props.fimJogo) ? <span data-test="word" key={index}>{` ${char} `}</span> : <span data-test="word" key={index}>{props.arrAcertos.includes(char) ? ` ${char} ` : ' _ '}</span>
+                  return (props.fimJogo) ? <span key={index}>{` ${char} `}</span> : <span key={index}>{props.arrAcertos.includes(char) ? ` ${char} ` : ' _ '}</span>
                })}
 
             </Char>
