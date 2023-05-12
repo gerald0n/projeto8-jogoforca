@@ -14,7 +14,7 @@ export default function Jogo(props) {
                   )
                   props.setTotalErrors(0)
                   props.setDisabledButton(false)
-                  props.setArrAcertos([])
+                  props.setkeysClickeds([])
                   props.setStatusColor('inprogress')
                   props.setFimJogo(false)
                }}
@@ -23,9 +23,9 @@ export default function Jogo(props) {
             </Button>
 
             <Char data-test="word">
-               {props.palavraSelecionada.split('').map((char, index) => {
+               {props.palavraSelecionada.split('').map((char) => {
                   
-                  return (props.fimJogo) ? <span key={index}>{` ${char} `}</span> : <span key={index}>{props.arrAcertos.includes(char) ? ` ${char} ` : ' _ '}</span>
+                  return (props.fimJogo) ? ` ${char} ` : props.keysClickeds.includes(char) ? ` ${char} ` : ' _ '
                })}
 
             </Char>

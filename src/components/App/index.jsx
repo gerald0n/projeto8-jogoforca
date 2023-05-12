@@ -10,7 +10,7 @@ export default function App() {
    const [totalErrors, setTotalErrors] = useState(0)
    const [palavraSelecionada, setPalavraSelecionada] = useState('')
    const [disabledButton, setDisabledButton] = useState(true)
-   const [arrAcertos, setArrAcertos] = useState([])
+   const [keysClickeds, setkeysClickeds] = useState([])
    const [totalAcertos, setTotalAcertos] = useState(0)
    const [statusColor, setStatusColor] = useState('inprogress')
    const [fimJogo, setFimJogo] = useState(false)
@@ -24,8 +24,8 @@ export default function App() {
             palavraSelecionada={palavraSelecionada}
             setPalavraSelecionada={setPalavraSelecionada}
             setDisabledButton={setDisabledButton}
-            arrAcertos={arrAcertos}
-            setArrAcertos={setArrAcertos}
+            keysClickeds={keysClickeds}
+            setkeysClickeds={setkeysClickeds}
             statusColor={statusColor}
             setStatusColor={setStatusColor}
             fimJogo={fimJogo}
@@ -39,8 +39,8 @@ export default function App() {
             setPalavraSelecionada={setPalavraSelecionada}
             totalErrors={totalErrors}
             setTotalErrors={setTotalErrors}
-            arrAcertos={arrAcertos}
-            setArrAcertos={setArrAcertos}
+            keysClickeds={keysClickeds}
+            setkeysClickeds={setkeysClickeds}
             totalAcertos={totalAcertos}
             setTotalAcertos={setTotalAcertos}
             statusColor={statusColor}

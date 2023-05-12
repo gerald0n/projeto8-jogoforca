@@ -3,17 +3,18 @@ import { Container, Button } from './style'
 export default function Letras(props) {
    const palavraReserva = []
    function logic(char) {
+      props.keysClickeds.push(char)
       if (props.palavraSelecionada.includes(char)) {
          props.setTotalAcertos(props.totalAcertos + 1)
          if (props.totalErrors < 6) {
-            props.arrAcertos.push(char)
             props.palavraSelecionada.split('').forEach((char) => {
-               palavraReserva.push(props.arrAcertos.includes(char) ? char : '_')
+               palavraReserva.push(props.keysClickeds.includes(char) ? char : '_')
             })
             if (palavraReserva.join('') === props.palavraSelecionada) {
                props.setStatusColor('sucess')
                props.setDisabledButton(true)
             }
+            console.log(palavraReserva)
          }
       } else {
          if (props.totalErrors < 5) {
@@ -30,7 +31,7 @@ export default function Letras(props) {
    return (
       <Container>
          {props.arr.map((char, index) => {
-            if (props.arrAcertos.includes(char)) {
+            if (props.keysClickeds.includes(char)) {
                return (
                   <Button
                      data-test="letter"
