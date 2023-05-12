@@ -3,7 +3,7 @@ import { ContainerJogo, Button, Char } from './style'
 export default function Jogo(props) {
    let palavra = ''
    palavra = props.palavraSelecionada.split('').map((char) => {
-      return props.fimJogo ? ` ${char} ` : props.keysClickeds.includes(char) ? ` ${char} ` : ' _ '
+      return props.fimJogo ? char: props.keysClickeds.includes(char) ? char:'_'
    })
 
    return (
