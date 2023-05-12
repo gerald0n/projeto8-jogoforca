@@ -2,11 +2,10 @@ import { Container, Button } from './style'
 
 export default function Letras(props) {
    const palavraReserva = []
-
    function logic(char) {
       if (props.palavraSelecionada.includes(char)) {
          props.setTotalAcertos(props.totalAcertos + 1)
-         if (props.totalErrors < 5) {
+         if (props.totalErrors < 6) {
             props.arrAcertos.push(char)
             props.palavraSelecionada.split('').forEach((char) => {
                palavraReserva.push(props.arrAcertos.includes(char) ? char : '_')
@@ -30,11 +29,31 @@ export default function Letras(props) {
 
    return (
       <Container>
-         {props.arr.map((char, index) => (
-            <Button data-test="letter" key={index} disabled={props.disabledButton} onClick={() => logic(char)}>
-               {char.toUpperCase()}
-            </Button>
-         ))}
+         {props.arr.map((char, index) => {
+            if (props.arrAcertos.includes(char)) {
+               return (
+                  <Button
+                     data-test="letter"
+                     key={index}
+                     disabled={true}
+                     onClick={() => logic(char)}
+                  >
+                     {char.toUpperCase()}
+                  </Button>
+               )
+            } else {
+               return (
+                  <Button
+                     data-test="letter"
+                     key={index}
+                     disabled={props.disabledButton}
+                     onClick={() => logic(char)}
+                  >
+                     {char.toUpperCase()}
+                  </Button>
+               )
+            }
+         })}
       </Container>
    )
 }
