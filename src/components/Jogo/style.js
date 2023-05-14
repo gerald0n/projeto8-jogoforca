@@ -44,4 +44,5 @@ export const Button = styled.button`
 export const Char = styled.p`
    font-weight: 700;
    font-size: 50px;
+   letter-spacing: 10px;
 `

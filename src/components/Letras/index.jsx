@@ -2,29 +2,39 @@ import { Container, Button } from './style'
 
 export default function Letras(props) {
    const palavraReserva = []
-   console.log(props.palavraSelecionada)
+
    function logic(char) {
+
+      const wordWithoutAccent = props.palavraSelecionada.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+
+      for (const index in wordWithoutAccent) {
+         if (wordWithoutAccent[index] === char) {
+            props.keysClickeds.push(props.palavraSelecionada[index])
+         }
+      }
+      
       props.keysClickeds.push(char)
-      if (props.palavraSelecionada.includes(char)) {
+
+      if (wordWithoutAccent.includes(char)) {
          props.setTotalAcertos(props.totalAcertos + 1)
+
          if (props.totalErrors < 6) {
             props.palavraSelecionada.split('').forEach((char) => {
                palavraReserva.push(props.keysClickeds.includes(char) ? char : '_')
             })
+
             if (palavraReserva.join('') === props.palavraSelecionada) {
                props.setStatusColor('sucess')
                props.setDisabledButton(true)
             }
          }
+      } else if (props.totalErrors < 5) {
+         props.setTotalErrors(props.totalErrors + 1)
       } else {
-         if (props.totalErrors < 5) {
-            props.setTotalErrors(props.totalErrors + 1)
-         } else {
-            props.setStatusColor('failed')
-            props.setDisabledButton(true)
-            props.setTotalErrors(6)
-            props.setFimJogo(true)
-         }
+         props.setStatusColor('failed')
+         props.setDisabledButton(true)
+         props.setTotalErrors(6)
+         props.setFimJogo(true)
       }
    }
 
