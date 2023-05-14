@@ -26,6 +26,7 @@ export default function Letras(props) {
             if (palavraReserva.join('') === props.palavraSelecionada) {
                props.setStatusColor('sucess')
                props.setDisabledButton(true)
+               props.setFimJogo(true)
             }
          }
       } else if (props.totalErrors < 5) {

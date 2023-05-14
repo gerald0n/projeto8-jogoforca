@@ -5,7 +5,7 @@ export const ContainerJogo = styled.div`
 
    display: flex;
    justify-content: space-between;
-   padding-block: 50px;
+   padding-top: 50px;
    box-sizing: border-box;
    color: ${({color}) => {
       return (color === 'inprogress')?'black':(color === 'sucess') ? '#27AE60': (color === 'failed') ? 'red' : 'black'

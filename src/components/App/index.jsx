@@ -5,6 +5,8 @@ import Jogo from '../Jogo'
 import Letras from '../Letras'
 import palavras from '../../palavras'
 import alfabeto from '../../alfabeto'
+import Chute from '../Chute'
+
 
 export default function App() {
    const [totalErrors, setTotalErrors] = useState(0)
@@ -13,7 +15,8 @@ export default function App() {
    const [keysClickeds, setkeysClickeds] = useState([])
    const [totalAcertos, setTotalAcertos] = useState(0)
    const [statusColor, setStatusColor] = useState('inprogress')
-   const [fimJogo, setFimJogo] = useState(false)
+   const [fimJogo, setFimJogo] = useState(true)
+
    return (
       <Container>
          <GlobalStyle />
@@ -49,6 +52,15 @@ export default function App() {
             fimJogo={fimJogo}
             setFimJogo={setFimJogo}
          />
+         
+         <Chute 
+         fimJogo={fimJogo}
+         setFimJogo={setFimJogo}
+         palavraSelecionada={palavraSelecionada}
+         setDisabledButton={setDisabledButton}
+         setStatusColor={setStatusColor}
+         setTotalErrors={setTotalErrors}
+          />
       </Container>
    )
 }
