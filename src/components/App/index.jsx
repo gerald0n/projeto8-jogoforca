@@ -20,9 +20,10 @@ export default function App() {
          <Jogo
             totalErrors={totalErrors}
             setTotalErrors={setTotalErrors}
-            arrPalavras={palavras}
+            arrPalavras={palavras.sort()}
             palavraSelecionada={palavraSelecionada}
             setPalavraSelecionada={setPalavraSelecionada}
+            disabledButton={disabledButton}
             setDisabledButton={setDisabledButton}
             keysClickeds={keysClickeds}
             setkeysClickeds={setkeysClickeds}

@@ -42,7 +42,6 @@ export const Button = styled.button`
 `
 
 export const Char = styled.p`
-   font-family: 'Noto Sans';
    font-weight: 700;
    font-size: 50px;
 `

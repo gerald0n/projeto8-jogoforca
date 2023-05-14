@@ -2,6 +2,7 @@ import { Container, Button } from './style'
 
 export default function Letras(props) {
    const palavraReserva = []
+   console.log(props.palavraSelecionada)
    function logic(char) {
       props.keysClickeds.push(char)
       if (props.palavraSelecionada.includes(char)) {
