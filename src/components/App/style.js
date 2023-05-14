@@ -5,5 +5,5 @@ export const Container = styled.div`
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   gap: 50px;
+   gap: 5rem;
 `
